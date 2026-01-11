@@ -1,34 +1,40 @@
+const cityTimezones = {
+    "new york": "America/New_York",
+    "los angeles": "America/Los_Angeles",
+    "london": "Europe/London",
+    "paris": "Europe/Paris",
+    "tokyo": "Asia/Tokyo",
+    "sydney": "Australia/Sydney",
+    "toronto": "America/Toronto",
+    "berlin": "Europe/Berlin",
+       /* Switzerland */
+    "lausanne": "Europe/Zurich",
+    "zurich": "Europe/Zurich",
+    "bern": "Europe/Zurich",
+    "geneva": "Europe/Zurich"
+};
+
 function getTime() {
-    const city = document.getElementById("cityInput").value.trim();
+    const cityInput = document.getElementById("cityInput").value.trim().toLowerCase();
     const result = document.getElementById("timeResult");
 
-    if (city === "") {
+    if (!cityInput || !cityTimezones[cityInput]) {
         result.textContent = "Please enter a valid city name!";
         return;
     }
 
-    // Using WorldTimeAPI (free public API)
-    fetch(`https://worldtimeapi.org/api/timezone`)
-        .then(response => response.json())
-        .then(timezones => {
-            const match = timezones.find(zone =>
-                zone.toLowerCase().includes(city.toLowerCase())
-            );
+    const now = new Date();
+    const time = new Intl.DateTimeFormat("en-US", {
+        timeZone: cityTimezones[cityInput],
+        timeStyle: "medium",
+        dateStyle: "long"
+    }).format(now);
 
-            if (!match) {
-                result.textContent = "Please enter a valid city name!";
-                return;
-            }
+    result.textContent = `Local time in ${capitalize(cityInput)}: ${time}`;
+}
 
-            return fetch(`https://worldtimeapi.org/api/timezone/${match}`);
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (!data || !data.datetime) return;
-            const time = new Date(data.datetime).toLocaleTimeString();
-            result.textContent = `Local time in ${city}: ${time}`;
-        })
-        .catch(() => {
-            result.textContent = "Please enter a valid city name!";
-        });
+function capitalize(text) {
+    return text.split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
 }
