@@ -1,105 +1,112 @@
+/* Base */
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Tahoma, sans-serif;
     background: linear-gradient(to right, #fffaf0, #ffe4e1);
+    color: #333;
 }
 
-/* Time section */
-.time-box {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+/* Top bar */
+.top-bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 24px;
 }
 
+/* Time box */
 .time-box input {
-    padding: 5px;
+    padding: 6px;
+    width: 140px;
 }
 
 .time-box button {
-    padding: 5px 10px;
+    padding: 6px 10px;
+    margin-left: 4px;
     cursor: pointer;
 }
 
+#timeResult {
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
 /* Header */
-header {
-    text-align: center;
-    padding: 40px 10px;
-}
-
-.header-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 30px 20px;
-}
-
-header h1 {
+.page-title {
+    margin: 0;
     text-transform: uppercase;
     letter-spacing: 2px;
-}
-.header-container h1 {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-}
-/* Smaller image on top-right */
-.header-image {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 150px;   /* controls size */
-    height: auto;
-    border-radius: 10px;
-}
-/* Main layout */
-.content {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    gap: 20px;
-}
-
-/* Ingredients section */
-.ingredients {
-    max-width: 50%;
-}
-
-.ingredients ul {
-    list-style-type: square;
+    font-size: 1.6rem;
+    text-align: left;
 }
 
 /* Image */
-.image-section img {
-    max-width: 100%;
-    border-radius: 10px;
+.header-image {
+    width: 130px;
+    border-radius: 12px;
 }
 
-/* Responsive design */
+/* Main grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px 24px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Ingredients */
+.ingredients ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Preparation */
+.preparation p {
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    max-width: 520px;
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 16px;
+    font-size: 1.4rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .ingredients {
-        max-width: 100%;
-    }
-
-    .time-box {
-        position: static;
+    .top-bar {
+        grid-template-columns: 1fr;
         text-align: center;
-        margin-top: 10px;
     }
 
-        .header-image {
-        position: static;
-        width: 120px;
-        margin-top: 10px;
+    .page-title {
+        text-align: center;
     }
 
-    .header-container {
-        flex-direction: column;
+    .header-image {
+        margin: auto;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px;
     }
 }
-
