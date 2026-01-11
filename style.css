@@ -91,4 +91,15 @@ header h1 {
         text-align: center;
         margin-top: 10px;
     }
+
+        .header-image {
+        position: static;
+        width: 120px;
+        margin-top: 10px;
+    }
+
+    .header-container {
+        flex-direction: column;
+    }
 }
+
