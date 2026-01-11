@@ -3,62 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sushi Receipt</title>
-
-    <!-- CSS -->
+    <title>Sushi Recipe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Time Button Section -->
-    <div class="time-box">
-        <input type="text" id="cityInput" placeholder="Enter city name">
-        <button onclick="getTime()">Get Local Time</button>
-        <p id="timeResult"></p>
+    <!-- Top Bar -->
+    <div class="top-bar">
+
+        <!-- Time box -->
+        <div class="time-box">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button onclick="getTime()">Get Time</button>
+            <div id="timeResult"></div>
+        </div>
+
+        <!-- Header -->
+        <h1 class="page-title">A SUSHI RECIPE FOR YOURSELF!</h1>
+
+        <!-- Image -->
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/60/Sushi_platter.jpg"
+            alt="Sushi platter"
+            class="header-image"
+        >
     </div>
 
-    <!-- Header -->
-<header class="header-container">
-    <h1>A SUSHI RECIPE FOR YOURSELF!</h1>
-    <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/60/Sushi_platter.jpg"
-        alt="Sushi platter"
-        class="header-image"
-    >
-</header>
-
     <!-- Main Content -->
-    <main class="content">
+    <main class="content-grid">
 
         <!-- Ingredients -->
         <section class="ingredients">
             <h2>Ingredients</h2>
             <ul>
-                <li>2 cups sushi rice</li>
-                <li>3 tbsp rice vinegar</li>
-                <li>1 tsp sugar</li>
-                <li>1 tsp salt</li>
-                <li>5 sheets nori</li>
-                <li>200g fresh salmon</li>
-                <li>1 avocado</li>
+                <li><span class="icon">🍚</span>2 cups sushi rice</li>
+                <li><span class="icon">🍶</span>3 tbsp rice vinegar</li>
+                <li><span class="icon">🧂</span>1 tsp salt</li>
+                <li><span class="icon">🍬</span>1 tsp sugar</li>
+                <li><span class="icon">🌿</span>5 sheets nori</li>
+                <li><span class="icon">🐟</span>200g fresh salmon</li>
+                <li><span class="icon">🥑</span>1 avocado</li>
             </ul>
-
-            <div class="preparation">
-                <h2>Preparation</h2>
-                <p>
-                    Cook the sushi rice and season it with vinegar, sugar, and salt.
-                    Lay the nori on a bamboo mat, spread rice evenly, and add sliced
-                    salmon and avocado. Roll tightly and slice into bite-sized pieces.
-                    Serve fresh and enjoy!
-                </p>
-            </div>
         </section>
 
-  
+        <!-- Preparation -->
+        <section class="preparation">
+            <h2>Preparation</h2>
+            <p>
+                Rinse the sushi rice thoroughly and cook until tender. While the rice is still warm,
+                gently mix in rice vinegar, sugar, and salt to create the signature sushi flavor.
+            </p>
+            <p>
+                Place a sheet of nori on a bamboo mat, spread the rice evenly, and layer slices of
+                salmon and avocado. Roll firmly, slice carefully, and serve immediately for best
+                taste and texture.
+            </p>
+        </section>
 
     </main>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
